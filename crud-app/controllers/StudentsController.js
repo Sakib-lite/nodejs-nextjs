@@ -19,7 +19,7 @@ exports.createNewStudent = async (req, res) => {
 
 exports.getAllStudents = async (req, res) => {
   try {
-    const allStudent = await Student.find(req.query);
+    const allStudent = await Student.find(req.query).sort(req.query.sort);
 
     res.status(200).json({
       status: 'succeed',
